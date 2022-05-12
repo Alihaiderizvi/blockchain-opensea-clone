@@ -34,6 +34,15 @@
         Run: sanity start. It will run on another port once it is compiled. 
         Open: the localhost sanity port and login,here you'll see your schema.
         Create: create a dummy user
+
+## 7- Metamask Authentication From Code
+    goto: pages 
+            collections
+                _app.js
+    install 3rdWeb/hooks, npm add @3rdweb/hooks    
+    Import: import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
+    goto: index.js 
+    Add: import { useWeb3 } from '@3rdweb/hooks', after that you can use useWeb3() and get your address,connectWallet or what everyou want from web3().
 # Next.js + Tailwind CSS Example
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
