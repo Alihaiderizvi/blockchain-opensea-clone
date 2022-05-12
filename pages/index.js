@@ -27,17 +27,18 @@ const Home = () => {
       }
     )
   }
-  
+
   useEffect(() => {
     if (!address) return
     ;(async () => {
       const userDoc = {
-        _type: 'users',
+        _type: 'users', 
         _id: address,
         userName: 'Unnamed',
         walletAddress: address,
       }
-
+      
+      // As longs as the wallet address is same no new user will be created.
       const result = await client.createIfNotExists(userDoc)
 
       welcomeUser(result.userName)
@@ -46,6 +47,7 @@ const Home = () => {
 
   return (
     <div className={style.wrapper}>
+      <Toaster position='top-center' reverseOrder={false}/>
       {address ? (
         <>
           <Header />
