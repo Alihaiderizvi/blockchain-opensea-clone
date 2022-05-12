@@ -26,8 +26,13 @@
         deploy a new connect, select marketplace and deploy and set marketplace/platform fee (3%).
         After that doto dashboard you'll see your Module Marketplace.
         Create another Module,NFT Collection, name it "Bored Apy Tacht Club" or anything your want symbol would be BATC related to your module name.
+        After that create your NFT's collection new Mint, set the name unique, for e.g. #0001.
         
-
+## 6- After setting up thirdweb
+    goto studio using cd studio in your code.
+        Run: sanity start. It will run on another port once it is compiled. 
+        Open: the localhost sanity port and login,here you'll see your schema.
+        Create: create a dummy user
 # Next.js + Tailwind CSS Example
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
