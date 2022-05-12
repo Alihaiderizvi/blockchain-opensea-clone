@@ -23,10 +23,11 @@
 
 ## 5- Setup thirdweb
     goto https://thirdweb.com/dashboard
-        deploy a new connect, select marketplace and deploy and set marketplace/platform fee (3%).
-        After that doto dashboard you'll see your Module Marketplace.
-        Create another Module,NFT Collection, name it "Bored Apy Tacht Club" or anything your want symbol would be BATC related to your module name.
-        After that create your NFT's collection new Mint, set the name unique, for e.g. #0001.
+        - deploy a new connect, select marketplace and deploy and set marketplace/platform fee (3%).
+        - After that doto dashboard you'll see your Module Marketplace.
+        - Create another Module,NFT Collection, name it "Bored Apy Tacht Club",
+        or anything your want symbol would be BATC related to your module name.
+        - After that create your NFT's collection new Mint, set the name unique, for e.g. #0001.
         
 ## 6- After setting up thirdweb
     goto studio using cd studio in your code.
