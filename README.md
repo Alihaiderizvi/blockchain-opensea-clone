@@ -49,7 +49,7 @@
     Install: npm i @sanity/client
     Add: in lib 
         sanityClient.js (new file)
-   ```json
+   ```
         import sanityClient from '@sanity/client'
 
         const client = sanityClient({
