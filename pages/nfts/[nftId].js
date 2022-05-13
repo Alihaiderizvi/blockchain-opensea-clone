@@ -25,11 +25,8 @@ const Nft = () => {
   const nftModule = useMemo(() => {
     if (!provider) return
 
-    const sdk = new ThirdwebSDK(
-      provider.getSigner(),
-      'https://eth-rinkeby.alchemyapi.io/v2/YlfPuZOgrjlXeVwdwzDdq0Q1MwxyqKxv'
-    )
-    return sdk.getNFTModule("0xc98f8c2fcec3ac9aeA193D88E27C2d9ED404EFAd")
+    const sdk = new ThirdwebSDK(provider.getSigner())
+    return sdk.getNFTModule('0xc98f8c2fcec3ac9aeA193D88E27C2d9ED404EFAd')
   }, [provider])
 
   // get all NFTs in the collection
@@ -40,7 +37,7 @@ const Nft = () => {
 
       const selectedNftItem = nfts.find((nft) => nft.id === router.query.nftId)
 
-      setSelectedNft(selectedNftItem) 
+      setSelectedNft(selectedNftItem)
     })()
   }, [nftModule])
 
@@ -48,10 +45,7 @@ const Nft = () => {
   const marketPlaceModule = useMemo(() => {
     if (!provider) return
 
-    const sdk = new ThirdwebSDK(
-      provider.getSigner(),
-      'https://eth-rinkeby.alchemyapi.io/v2/YlfPuZOgrjlXeVwdwzDdq0Q1MwxyqKxv'
-    )
+    const sdk = new ThirdwebSDK(provider.getSigner())
     return sdk.getMarketplaceModule(
       '0x078bF194f9Ebd412cD839923502e03C7BE16Bf93' // from thirdweb marketplace get the address.
     )
@@ -92,4 +86,3 @@ const Nft = () => {
 }
 
 export default Nft
- 

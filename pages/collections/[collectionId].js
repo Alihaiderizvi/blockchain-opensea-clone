@@ -43,30 +43,24 @@ const Collection = () => {
   const nftModule = useMemo(() => {
     if (!provider) return
 
-    const sdk = new ThirdwebSDK(
-      provider.getSigner(),
-      'https://eth-rinkeby.alchemyapi.io/v2/YlfPuZOgrjlXeVwdwzDdq0Q1MwxyqKxv'
-    )
+    const sdk = new ThirdwebSDK(provider.getSigner())
     return sdk.getNFTModule(collectionId)
   }, [provider])
 
   // get all NFTs in the collection
   useEffect(() => {
     if (!nftModule) return
-    ;(async () => { 
+    ;(async () => {
       setNfts(await nftModule.getAll())
     })()
-    console.log({nfts});
+    console.log({ nfts })
   }, [nftModule])
 
   // get marketplace module
   const marketPlaceModule = useMemo(() => {
     if (!provider) return
 
-    const sdk = new ThirdwebSDK(
-      provider.getSigner(),
-      'https://eth-rinkeby.alchemyapi.io/v2/YlfPuZOgrjlXeVwdwzDdq0Q1MwxyqKxv'
-    )
+    const sdk = new ThirdwebSDK(provider.getSigner())
     return sdk.getMarketplaceModule(
       '0x078bF194f9Ebd412cD839923502e03C7BE16Bf93' // from thirdweb marketplace get the address.
     )
@@ -78,7 +72,7 @@ const Collection = () => {
     ;(async () => {
       setListings(await marketPlaceModule.getAllListings())
     })()
-  }, [marketPlaceModule]) 
+  }, [marketPlaceModule])
 
   const fetchCollectionData = async (SanityClient = client) => {
     const query = `*[_type == "marketItems" && contractAddress == "${collectionId}" ] {
