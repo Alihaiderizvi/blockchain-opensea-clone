@@ -8,7 +8,7 @@ import Header from '../../components/Header'
 import { CgWebsite } from 'react-icons/cg'
 import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { HiDotsVertical } from 'react-icons/hi'
-import NFTCard from '../../components/NFTCard'
+// import NFTCard from '../../components/NFTCard'
 
 const style = {
   bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -50,14 +50,6 @@ const Collection = () => {
     return sdk.getNFTModule(collectionId)
   }, [provider])
 
-  // get all listings in the collection
-  useEffect(() => {
-    if (!marketPlaceModule) return
-    ;(async () => {
-      setListings(await marketPlaceModule.getAllListings())
-    })()
-  }, [marketPlaceModule])
-
   // get marketplace module
   const marketPlaceModule = useMemo(() => {
     if (!provider) return
@@ -74,23 +66,42 @@ const Collection = () => {
   // get all listings in the collection
   useEffect(() => {
     if (!marketPlaceModule) return
+    ;(async () => {
+      setListings(await marketPlaceModule.getAllListings())
+    })()
+  }, [marketPlaceModule])
+
+  // get all listings in the collection
+  useEffect(() => {
+    if (!marketPlaceModule) return
     ;async () => {
       setListings(await marketPlaceModule.getAllListings())
     }
   }, [marketPlaceModule])
 
+  const fetchCollectionData = async (SanityClient = client) => {
+    const query = `*[_type == "marketItems" && contractAddress == "${collectionId}" ] {
+      "imageUrl": profileImage.asset->url,
+      "bannerImageUrl": bannerImage.asset->url,
+      volumeTraded,
+      createdBy,
+      contractAddress,
+      "creator": createdBy->userName,
+      title, floorPrice,
+      "allOwners": owners[]->,
+      description
+    }`
 
-  //   *[_type == "marketItems" && contractAddress == "0xc98f8c2fcec3ac9aeA193D88E27C2d9ED404EFAd" ]{
-  //     "imageUrl": profileImage.asset->url,
-  //     "bannerImageUrl": bannerImage.asset->url,
-  //     volumeTraded,
-  //     createdBy,
-  //     contractAddress,
-  //     "creator": createdBy->userName,
-  //     title, floorPrice,
-  //     "allOwners": owners[]->,
-  //     description
-  // }
+    const collectionData = await SanityClient.fetch(query)
+
+    console.log({ collectionData })
+
+    setCollection(collectionData[0])
+  }
+
+  useEffect(() => {
+    fetchCollectionData()
+  }, [collectionId])
 
   return <div>[collectionId]</div>
 }
