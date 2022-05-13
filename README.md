@@ -1,5 +1,13 @@
 # Opensea Blockchain Web3.0 App.
 
+# Preview 
+## Home Page 
+https://user-images.githubusercontent.com/66882702/168290214-2a88c35b-50c1-4dcd-968e-83b1fbee3d4c.PNG
+## Collections Page 
+https://user-images.githubusercontent.com/66882702/168290221-c71f532f-dcdc-4431-b6a4-caeb58ac6337.PNG
+## NFT Selected Detail Page 
+https://user-images.githubusercontent.com/66882702/168290226-5867b799-13e9-46a9-b283-a58051a998dd.PNG
+
 ## 1-Create next js project 
     npx create-next-app with-tailwindcss 
     
