@@ -43,13 +43,12 @@
     Import: import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
     goto: index.js 
     Add: import { useWeb3 } from '@3rdweb/hooks', after that you can use useWeb3() and get your address,connectWallet or what everyou want from web3().
-    
 ## 8-Sanity Client
     Create: A new folder lib in root directory
     Install: npm i @sanity/client
     Add: in lib 
         sanityClient.js (new file)
-   ```
+    ```
         import sanityClient from '@sanity/client'
 
         const client = sanityClient({
@@ -65,8 +64,27 @@
                     select Editor Access.
         useCdn: true, // `false` if you want to ensure fresh data
         })
-   ```
-   
+    ```
+## 9- Alchemy Web3 
+    What is alchemy Web3?
+      Alchemy Web3 is a drop-in replacement for web3. js, built and configured to work seamlessly with Alchemy and provide multiple advantages such as automatic retries and robust WebSocket support.
+    Create: a new alchemy account
+    goto: your project, click "view key" and copy the :
+    ```diff
+        HTTP KEY
+    ```
+    paste the Key in [CollectionID] file.
+
+## 10- Sanity Database
+    goto : sanity running port.
+        Hit arket items ( NFT Collection ) and,
+            Add : title NFT Collection name 
+                  contract address: goto NFT collection and copy the address 
+    After that publish the market Item.
+    ```
+    Now goto vision, there you can write quries
+    ```
+    
 # Next.js + Tailwind CSS Example
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
