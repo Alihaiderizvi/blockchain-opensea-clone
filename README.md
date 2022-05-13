@@ -4,9 +4,9 @@
 ## Home Page 
 ![1](https://user-images.githubusercontent.com/66882702/168290989-3326226f-a4f1-4680-b62a-5cf576972273.PNG)
 ## Collections Page 
-https://user-images.githubusercontent.com/66882702/168290221-c71f532f-dcdc-4431-b6a4-caeb58ac6337.PNG
+![2](https://user-images.githubusercontent.com/66882702/168291306-bcde59b8-4a02-49cb-b778-ed0f1b84aaa4.PNG)
 ## NFT Selected Detail Page 
-https://user-images.githubusercontent.com/66882702/168290226-5867b799-13e9-46a9-b283-a58051a998dd.PNG
+![3](https://user-images.githubusercontent.com/66882702/168291324-7fd44f8e-b873-49a9-aabd-9d7642722f59.PNG)
 
 ## 1-Create next js project 
     npx create-next-app with-tailwindcss 
