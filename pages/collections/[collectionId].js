@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, memo } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useWeb3 } from '@3rdweb/hooks'
@@ -78,15 +78,7 @@ const Collection = () => {
     ;(async () => {
       setListings(await marketPlaceModule.getAllListings())
     })()
-  }, [marketPlaceModule])
-
-  // get all listings in the collection
-  useEffect(() => {
-    if (!marketPlaceModule) return
-    ;async () => {
-      setListings(await marketPlaceModule.getAllListings())
-    }
-  }, [marketPlaceModule])
+  }, [marketPlaceModule]) 
 
   const fetchCollectionData = async (SanityClient = client) => {
     const query = `*[_type == "marketItems" && contractAddress == "${collectionId}" ] {
