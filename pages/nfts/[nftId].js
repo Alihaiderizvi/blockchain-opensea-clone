@@ -4,6 +4,7 @@ import { useWeb3 } from '@3rdweb/hooks'
 import { ThirdwebSDK } from '@3rdweb/sdk'
 import { useRouter } from 'next/router'
 import NftImage from '../../components/nft/NftImage'
+import GeneralDetails from '../../components/nft/GeneralDetails'
 
 const style = {
   wrapper: `flex flex-col items-center container-lg text-[#e5e8eb]`,
@@ -72,7 +73,7 @@ const Nft = () => {
               <NftImage selectedNft={selectedNft} />
             </div>
             <div className={style.detailsContainer}>
-              {/* <GeneralDetails selectedNft={selectedNft} /> */}
+              <GeneralDetails selectedNft={selectedNft} />
               {/* <Purchase
                 isListed={router.query.isListed}
                 selectedNft={selectedNft}
