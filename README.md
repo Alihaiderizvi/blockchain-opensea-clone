@@ -2,7 +2,7 @@
 
 # Preview 
 ## Home Page 
-https://user-images.githubusercontent.com/66882702/168290214-2a88c35b-50c1-4dcd-968e-83b1fbee3d4c.PNG
+![1](https://user-images.githubusercontent.com/66882702/168290989-3326226f-a4f1-4680-b62a-5cf576972273.PNG)
 ## Collections Page 
 https://user-images.githubusercontent.com/66882702/168290221-c71f532f-dcdc-4431-b6a4-caeb58ac6337.PNG
 ## NFT Selected Detail Page 
