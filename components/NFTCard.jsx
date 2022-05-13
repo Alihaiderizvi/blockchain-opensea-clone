@@ -1,8 +1,8 @@
 import React from 'react'
 
-const NFTCard = () => {
+const NFTCard = ({nftItem}) => {
   return (
-    <div>NFTCard</div>
+    <image src={nftItem.image} alt="NFT Image"/>
   )
 }
 
