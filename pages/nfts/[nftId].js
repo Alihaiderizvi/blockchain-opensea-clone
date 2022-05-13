@@ -3,13 +3,14 @@ import { useEffect, useMemo, useState } from 'react'
 import { useWeb3 } from '@3rdweb/hooks'
 import { ThirdwebSDK } from '@3rdweb/sdk'
 import { useRouter } from 'next/router'
+import NftImage from '../../components/nft/NftImage'
 
 const style = {
   wrapper: `flex flex-col items-center container-lg text-[#e5e8eb]`,
   container: `container p-6`,
   topContent: `flex`,
   nftImgContainer: `flex-1 mr-4`,
-  detailsContainer: `flex-[2] ml-4`,
+  detailsContainer: `flex-[2] ml-4 `,
 }
 
 const Nft = () => {
@@ -25,16 +26,19 @@ const Nft = () => {
       provider.getSigner(),
       'https://eth-rinkeby.alchemyapi.io/v2/YlfPuZOgrjlXeVwdwzDdq0Q1MwxyqKxv'
     )
-    return sdk.getNFTModule(collectionId)
+    return sdk.getNFTModule("0xc98f8c2fcec3ac9aeA193D88E27C2d9ED404EFAd")
   }, [provider])
 
   // get all NFTs in the collection
   useEffect(() => {
     if (!nftModule) return
     ;(async () => {
-      setNfts(await nftModule.getAll())
+      const nfts = await nftModule.getAll()
+
+      const selectedNftItem = nfts.find((nft) => nft.id === router.query.nftId)
+
+      setSelectedNft(selectedNftItem) 
     })()
-    console.log({ nfts })
   }, [nftModule])
 
   // get marketplace module
@@ -65,19 +69,19 @@ const Nft = () => {
         <div className={style.container}>
           <div className={style.topContent}>
             <div className={style.nftImgContainer}>
-              <NFTImage selectedNft={selectedNft} />
+              <NftImage selectedNft={selectedNft} />
             </div>
             <div className={style.detailsContainer}>
-              <GeneralDetails selectedNft={selectedNft} />
-              <Purchase
+              {/* <GeneralDetails selectedNft={selectedNft} /> */}
+              {/* <Purchase
                 isListed={router.query.isListed}
                 selectedNft={selectedNft}
                 listings={listings}
                 marketPlaceModule={marketPlaceModule}
-              />
+              /> */}
             </div>
           </div>
-          <ItemActivity />
+          {/* <ItemActivity /> */}
         </div>
       </div>
     </div>
