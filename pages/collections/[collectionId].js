@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useWeb3 } from '@3rdweb/hooks'
-import { client } from '../../lib/sanityclient'
+// import { client } from '../../lib/sanityclient'
 import { ThirdwebSDK } from '@3rdweb/sdk'
 import Header from '../../components/Header'
 import { CgWebsite } from 'react-icons/cg'
@@ -74,7 +74,8 @@ const Collection = () => {
     })()
   }, [marketPlaceModule])
 
-  const fetchCollectionData = async (SanityClient = client) => {
+  // const fetchCollectionData = async (SanityClient = client) => {
+  const fetchCollectionData = async (SanityClient = []) => {
     const query = `*[_type == "marketItems" && contractAddress == "${collectionId}" ] {
       "imageUrl": profileImage.asset->url,
       "bannerImageUrl": bannerImage.asset->url,
@@ -87,7 +88,7 @@ const Collection = () => {
       description
     }`
 
-    const collectionData = await SanityClient.fetch(query)
+    const collectionData = await SanityClient.fetch(query) ? await SanityClient.fetch(query) : []
 
     console.log({ collectionData })
 
